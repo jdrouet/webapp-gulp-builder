@@ -12,6 +12,8 @@ gulp.task 'watch', ['compile', 'static'], ->
   gulp.watch config.input.jade, ['compile:jade']
   gulp.watch config.input.template, ['compile:template']
   gulp.watch config.input.vendor.watch, ['compile:vendor']
+  if config.input.loopback.enabled
+    gulp.watch config.input.loopback.watch, ['compile:loopback']
   statics = []
   for key, value of config.input.static
     statics = statics.concat value
