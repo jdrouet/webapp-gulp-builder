@@ -7,6 +7,7 @@ gulp          = require 'gulp'
 gutil         = require 'gulp-util'
 lbService     = require 'gulp-loopback-sdk-angular'
 ngAnnotate    = require 'gulp-ng-annotate'
+rename        = require 'gulp-rename'
 sourcemaps    = require 'gulp-sourcemaps'
 uglify        = require 'gulp-uglify'
 
