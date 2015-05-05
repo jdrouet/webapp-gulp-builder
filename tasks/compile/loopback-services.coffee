@@ -13,7 +13,7 @@ uglify        = require 'gulp-uglify'
 gulp.task 'compile:loopback', ->
   return if not config.input.loopback.enabled
   gulp.src config.input.loopback.server
-  .on 'error', util.log
+  .on 'error', gutil.log
   .pipe lbService apiUrl: config.input.loopback.url
   .pipe uglify()
   .pipe sourcemaps.init()
