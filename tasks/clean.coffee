@@ -1,4 +1,4 @@
-config        = require '../config.coffee'
+config        = require '../../gulp.config.coffee'
 
 del           = require 'del'
 gulp          = require 'gulp'

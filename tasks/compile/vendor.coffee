@@ -1,4 +1,4 @@
-config          = require '../../config.coffee'
+config          = require '../../../gulp.config.coffee'
 
 concat          = require 'gulp-concat'
 filter          = require 'gulp-filter'
