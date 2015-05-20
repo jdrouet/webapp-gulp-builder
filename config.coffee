@@ -68,7 +68,7 @@ config.output.application = 'application.js'
 
 config.output.template = {}
 config.output.template.filename = 'templates.js'
-config.output.template.module = 'pepiniere-start.template'
+config.output.template.module = 'application.template'
 
 config.output.vendor = 'vendor.js'
 
@@ -81,6 +81,7 @@ config.output.static.ie8css = "#{config.output.path}/style"
 config.output.loopback = {}
 config.output.loopback.filename = 'services.js'
 config.output.loopback.path = "#{config.output.path}/script"
+config.output.loopback.module = 'application.service'
 
 config.output.less = "#{config.output.path}/style"
 
