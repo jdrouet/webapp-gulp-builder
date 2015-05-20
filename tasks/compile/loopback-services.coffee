@@ -15,7 +15,9 @@ gulp.task 'compile:loopback', ->
   return if not config.input.loopback.enabled
   gulp.src config.input.loopback.server
   .on 'error', gutil.log
-  .pipe lbService apiUrl: config.input.loopback.url
+  .pipe lbService
+    apiUrl: config.input.loopback.url
+    ngModuleName: config.output.loopback.module
   .pipe uglify()
   .pipe sourcemaps.init()
   .pipe sourcemaps.write()
