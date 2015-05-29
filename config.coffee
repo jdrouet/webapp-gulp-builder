@@ -34,6 +34,10 @@ config.input.vendor.watch = [
   'bower_components/*'
 ]
 
+config.input.replace = {}
+config.input.replace.enabled = true
+config.input.replace.patterns = []
+
 # Static files
 config.input.static = {}
 # Can add keys in both input and output to add static profile
