@@ -4,6 +4,7 @@ gif           = require 'gulp-if'
 gutil         = require 'gulp-util'
 lbService     = require 'gulp-loopback-sdk-angular'
 ngAnnotate    = require 'gulp-ng-annotate'
+plumber       = require 'gulp-plumber'
 rename        = require 'gulp-rename'
 sourcemaps    = require 'gulp-sourcemaps'
 uglify        = require 'gulp-uglify'
@@ -13,6 +14,7 @@ module.exports = (gulp, config) ->
   gulp.task 'compile:loopback', ->
     return if not config.input.loopback.enabled
     gulp.src config.input.loopback.server
+    .pipe plumber()
     .on 'error', gutil.log
     .pipe lbService
       apiUrl: config.input.loopback.url

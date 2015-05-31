@@ -4,10 +4,12 @@ gutil         = require 'gulp-util'
 less          = require 'gulp-less'
 minifyCss     = require 'gulp-minify-css'
 path          = require 'path'
+plumber       = require 'gulp-plumber'
 
 module.exports = (gulp, config) ->
   gulp.task 'compile:less', ->
     gulp.src config.input.less.main
+    .pipe plumber()
     .on 'error', gutil.log
     .pipe less paths: [ path.join(__dirname) ]
     .pipe autoprefixer

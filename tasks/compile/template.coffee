@@ -1,6 +1,7 @@
 gutil         = require 'gulp-util'
 gif           = require 'gulp-if'
 jade          = require 'gulp-jade'
+plumber       = require 'gulp-plumber'
 replace       = require 'gulp-replace-task'
 sourcemaps    = require 'gulp-sourcemaps'
 templateCache = require 'gulp-angular-templatecache'
@@ -9,6 +10,7 @@ module.exports = (gulp, config) ->
   gulp.task 'compile:template', ->
     gulp.src config.input.template
     .on 'error', gutil.log
+    .pipe plumber()
     .pipe gif config.input.replace.enabled, replace config.input.replace
     .pipe jade
       doctype: 'html'

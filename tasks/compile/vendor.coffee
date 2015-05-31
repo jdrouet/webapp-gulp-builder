@@ -10,6 +10,7 @@ uglify          = require 'gulp-uglify'
 module.exports = (gulp, config) ->
   gulp.task 'compile:vendor', ->
     gulp.src mainBowerFiles()
+    .pipe plumber()
     .on 'error', gutil.log
     .pipe filter '**/*.js'
     .pipe concat config.output.vendor
