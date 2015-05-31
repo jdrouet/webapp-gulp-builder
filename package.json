@@ -42,6 +42,7 @@
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.4",
     "main-bower-files": "^2.7.0",
+    "plumber": "^0.4.8",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.0",
     "vinyl-paths": "^1.0.0"

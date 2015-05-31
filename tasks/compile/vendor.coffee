@@ -4,6 +4,7 @@ gif             = require 'gulp-if'
 gulp            = require 'gulp'
 gutil           = require 'gulp-util'
 mainBowerFiles  = require 'main-bower-files'
+plumber         = require 'gulp-plumber'
 sourcemaps      = require 'gulp-sourcemaps'
 uglify          = require 'gulp-uglify'
 
