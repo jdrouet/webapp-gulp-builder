@@ -19,7 +19,7 @@ module.exports = (gulp, config) ->
     .pipe lbService
       apiUrl: config.input.loopback.url
       ngModuleName: config.output.loopback.module
-    .pipe uglify()
+    .pipe gif config.minify, uglify()
     .pipe sourcemaps.init()
     .pipe sourcemaps.write()
     .pipe rename config.output.loopback.filename
