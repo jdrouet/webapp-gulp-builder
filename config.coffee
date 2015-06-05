@@ -61,6 +61,10 @@ config.input.loopback.watch = [] # Files to watch
 config.input.loopback.enabled = false
 config.input.loopback.server = '../path/to/server.coffee'
 config.input.loopback.url = 'http://example.com/api/'
+config.input.loopback.watch = [
+  '../path/to/server/folder'
+  '../path/to/common/folder'
+]
 
 config.output = {}
 # Output directory
