@@ -1,6 +1,7 @@
 jade          = require 'gulp-jade'
 gif           = require 'gulp-if'
 gutil         = require 'gulp-util'
+livereload    = require 'gulp-livereload'
 plumber       = require 'gulp-plumber'
 replace       = require 'gulp-replace-task'
 
@@ -13,3 +14,4 @@ module.exports = (gulp, config) ->
     .pipe jade
       pretty: not config.minify
     .pipe gulp.dest config.output.path
+    .pipe livereload()

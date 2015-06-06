@@ -1,6 +1,7 @@
 gutil         = require 'gulp-util'
 gif           = require 'gulp-if'
 jade          = require 'gulp-jade'
+livereload    = require 'gulp-livereload'
 plumber       = require 'gulp-plumber'
 replace       = require 'gulp-replace-task'
 sourcemaps    = require 'gulp-sourcemaps'
@@ -22,3 +23,4 @@ module.exports = (gulp, config) ->
     .pipe sourcemaps.init()
     .pipe sourcemaps.write()
     .pipe gulp.dest config.output.script
+    .pipe livereload()

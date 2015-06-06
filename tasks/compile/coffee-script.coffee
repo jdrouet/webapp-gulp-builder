@@ -2,6 +2,7 @@ coffee        = require 'gulp-coffee'
 concat        = require 'gulp-concat'
 gif           = require 'gulp-if'
 gutil         = require 'gulp-util'
+livereload    = require 'gulp-livereload'
 ngAnnotate    = require 'gulp-ng-annotate'
 plumber       = require 'gulp-plumber'
 replace       = require 'gulp-replace-task'
@@ -22,3 +23,4 @@ module.exports = (gulp, config) ->
     .pipe sourcemaps.init()
     .pipe sourcemaps.write()
     .pipe gulp.dest config.output.script
+    .pipe livereload()

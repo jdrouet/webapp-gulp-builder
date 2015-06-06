@@ -1,3 +1,4 @@
+livereload    = require 'gulp-livereload'
 plumber       = require 'gulp-plumber'
 
 module.exports = (gulp, config) ->
@@ -7,3 +8,4 @@ module.exports = (gulp, config) ->
         gulp.src config.input.static[type]
         .pipe plumber()
         .pipe gulp.dest config.output.static[type]
+        .pipe livereload()

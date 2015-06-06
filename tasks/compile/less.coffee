@@ -2,6 +2,7 @@ autoprefixer  = require 'gulp-autoprefixer'
 gif           = require 'gulp-if'
 gutil         = require 'gulp-util'
 less          = require 'gulp-less'
+livereload    = require 'gulp-livereload'
 minifyCss     = require 'gulp-minify-css'
 path          = require 'path'
 plumber       = require 'gulp-plumber'
@@ -17,3 +18,4 @@ module.exports = (gulp, config) ->
       cascade: false
     .pipe gif config.minify, minifyCss()
     .pipe gulp.dest config.output.less
+    .pipe livereload()

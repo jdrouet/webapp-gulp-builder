@@ -3,6 +3,7 @@ filter          = require 'gulp-filter'
 gif             = require 'gulp-if'
 gulp            = require 'gulp'
 gutil           = require 'gulp-util'
+livereload      = require 'gulp-livereload'
 mainBowerFiles  = require 'main-bower-files'
 plumber         = require 'gulp-plumber'
 sourcemaps      = require 'gulp-sourcemaps'
@@ -19,3 +20,4 @@ module.exports = (gulp, config) ->
     .pipe sourcemaps.init()
     .pipe sourcemaps.write()
     .pipe gulp.dest config.output.script
+    .pipe livereload()

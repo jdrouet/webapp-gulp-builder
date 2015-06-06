@@ -3,6 +3,7 @@ concat        = require 'gulp-concat'
 gif           = require 'gulp-if'
 gutil         = require 'gulp-util'
 lbService     = require 'gulp-loopback-sdk-angular'
+livereload    = require 'gulp-livereload'
 ngAnnotate    = require 'gulp-ng-annotate'
 plumber       = require 'gulp-plumber'
 rename        = require 'gulp-rename'
@@ -24,3 +25,4 @@ module.exports = (gulp, config) ->
     .pipe sourcemaps.write()
     .pipe rename config.output.loopback.filename
     .pipe gulp.dest config.output.loopback.path
+    .pipe livereload()
