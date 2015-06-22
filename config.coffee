@@ -7,6 +7,7 @@ if process.env.NODE_ENV == 'staging'
   config.minify = true
 
 config.livereload = true
+config.lint = true
 
 config.input = {}
 # Where sources are located
@@ -23,6 +24,7 @@ config.input.coffee = [
   "#{config.input.path}/*.coffee"
   "#{config.input.path}/**/*.coffee"
 ]
+
 # Where to find less file(s)
 config.input.less = {}
 config.input.less.main = "#{config.input.path}/style/main.less"
