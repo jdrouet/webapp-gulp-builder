@@ -42,6 +42,18 @@ config.input.replace = {}
 config.input.replace.enabled = true
 config.input.replace.patterns = []
 
+config.input.manifest = {}
+config.input.manifest.enabled = false
+config.input.manifest.source = config.output.path + '/**'
+config.input.manifest.settings =
+  filename: 'app.manifest'
+  cache: undefined
+  exclude: 'app.manifest'
+  network: ['*']
+  fallback: undefined
+  preferOnline: undefined
+  hash: true
+
 # Static files
 config.input.static = {}
 # Can add keys in both input and output to add static profile
@@ -79,6 +91,8 @@ config.output.template.filename = 'templates.js'
 config.output.template.module = 'application.template'
 
 config.output.vendor = 'vendor.js'
+
+config.output.manifest = config.output.path
 
 config.output.static = {}
 config.output.static.fonts = "#{config.output.path}/style/fonts"

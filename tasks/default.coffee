@@ -1,5 +1,10 @@
+manifest      = require 'gulp-manifest'
+
 module.exports = (gulp, config) ->
-  gulp.task 'default', ['lint', 'compile', 'static'], ->
-    if config.input.loopback.enabled
-      # To close database with loopback
-      process.exit 0
+  gulp.task 'default', (done) ->
+    sequence      = require('run-sequence').use gulp
+    sequence ['lint', 'compile', 'static'], 'manifest', ->
+      if config.input.loopback.enabled
+        # To close database with loopback
+        process.exit 0
+      done()
