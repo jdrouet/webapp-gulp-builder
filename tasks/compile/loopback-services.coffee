@@ -7,6 +7,7 @@ livereload    = require 'gulp-livereload'
 ngAnnotate    = require 'gulp-ng-annotate'
 plumber       = require 'gulp-plumber'
 rename        = require 'gulp-rename'
+replace       = require 'gulp-replace'
 sourcemaps    = require 'gulp-sourcemaps'
 uglify        = require 'gulp-uglify'
 
@@ -24,5 +25,6 @@ module.exports = (gulp, config) ->
     .pipe sourcemaps.init()
     .pipe sourcemaps.write()
     .pipe rename config.output.loopback.filename
+    .pipe gif config.input.loopback.prefix.replace, replace('$LoopBack$', config.input.loopback.prefix.with)
     .pipe gulp.dest config.output.loopback.path
     .pipe livereload()
