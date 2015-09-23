@@ -75,6 +75,9 @@ config.input.static.ie8css = [
 config.input.loopback = {}
 config.input.loopback.watch = [] # Files to watch
 config.input.loopback.enabled = false
+config.input.loopback.prefix =
+  replace: true
+  with: '$YourApplicationName$'
 config.input.loopback.server = '../path/to/server.coffee'
 config.input.loopback.url = 'http://example.com/api/'
 
