@@ -1,9 +1,6 @@
 module.exports = (gulp, config) ->
   require('./coffee-script.coffee') gulp, config
   require('./jade.coffee') gulp, config
-  require('./less.coffee') gulp, config
-  require('./sass.coffee') gulp, config
-  require('./loopback-services.coffee') gulp, config
   require('./template.coffee') gulp, config
   require('./vendor.coffee') gulp, config
 
@@ -13,8 +10,17 @@ module.exports = (gulp, config) ->
     'compile:template'
     'compile:vendor'
   ]
-  tasks.push 'compile:less' if config.input?.less?.enabled
-  tasks.push 'compile:sass' if config.input?.sass?.enabled
-  tasks.push 'compile:loopback' if config.input?.loopback?.enabled
+
+  if config.input?.less?.enabled
+    require('./less.coffee') gulp, config
+    tasks.push 'compile:less'
+
+  if config.input?.sass?.enabled
+    require('./sass.coffee') gulp, config
+    tasks.push 'compile:sass'
+
+  if config.input?.loopback?.enabled
+    require('./loopback-services.coffee') gulp, config
+    tasks.push 'compile:loopback'
 
   gulp.task 'compile', tasks
