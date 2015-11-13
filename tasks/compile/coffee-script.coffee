@@ -17,7 +17,10 @@ module.exports = (gulp, config) ->
     .pipe gif config.input.replace.enabled, replace config.input.replace
     .pipe coffee
       bare: true
-    .pipe ngAnnotate()
+    .pipe ngAnnotate
+      remove: true
+      add: true
+      single_quotes: true
     .pipe gif config.minify, uglify()
     .pipe concat config.output.application
     .pipe sourcemaps.init()
