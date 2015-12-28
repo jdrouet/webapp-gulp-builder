@@ -1,5 +1,6 @@
 gutil         = require 'gulp-util'
 gif           = require 'gulp-if'
+htmlmin       = require 'gulp-htmlmin'
 jade          = require 'gulp-jade'
 livereload    = require 'gulp-livereload'
 plumber       = require 'gulp-plumber'
@@ -16,6 +17,9 @@ module.exports = (gulp, config) ->
     .pipe jade
       doctype: 'html'
       pretty: not config.minify
+    .pipe gif config.minify, htmlmin
+      collapseWhitespace: true
+      removeComments: true
     .pipe templateCache
       filename: config.output.template.filename
       module: config.output.template.module

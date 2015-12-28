@@ -18,7 +18,7 @@ module.exports = (gulp, config) ->
     .pipe coffee
       bare: true
     .pipe ngAnnotate
-      remove: true
+      remove: false
       add: true
       single_quotes: true
     .pipe gif config.minify, uglify()
