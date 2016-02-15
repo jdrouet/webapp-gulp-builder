@@ -6,6 +6,9 @@ if process.env.NODE_ENV == 'production'
 if process.env.NODE_ENV == 'staging'
   config.minify = true
 
+config.cssnano =
+  zindex: true
+
 config.livereload = true
 config.lint = true
 
