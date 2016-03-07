@@ -16,7 +16,6 @@ module.exports = (gulp, config) ->
     .pipe autoprefixer
       browsers: ['last 2 versions', 'Firefox >= 24', 'ie >= 11']
       cascade: false
-    .pipe gif config.minify, cssnano
-      zindex: config.cssnano.zindex
+    .pipe gif config.minify, cssnano(config.cssnano)
     .pipe gulp.dest config.output.less
     .pipe livereload()

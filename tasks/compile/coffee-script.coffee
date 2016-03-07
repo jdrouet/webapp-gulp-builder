@@ -15,13 +15,9 @@ module.exports = (gulp, config) ->
     .pipe plumber()
     .on 'error', gutil.log
     .pipe gif config.input.replace.enabled, replace config.input.replace
-    .pipe coffee
-      bare: true
-    .pipe ngAnnotate
-      remove: false
-      add: true
-      single_quotes: true
-    .pipe gif config.minify, uglify()
+    .pipe coffee(config.coffee)
+    .pipe ngAnnotate(config.ngAnnotate)
+    .pipe gif config.minify, uglify(config.uglify)
     .pipe concat config.output.application
     .pipe sourcemaps.init()
     .pipe sourcemaps.write()
