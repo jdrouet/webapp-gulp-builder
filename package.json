@@ -1,6 +1,6 @@
 {
   "name": "webapp-gulp-builder",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "My own common builder",
   "main": "gulpfile.coffee",
   "scripts": {
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jdrouet/webapp-gulp-builder.git"
+    "url": "https://github.com/FastIT/webapp-gulp-builder.git"
   },
-  "author": "Jérémie Drouet <jeremie.drouet@gmail.com>",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jdrouet/webapp-gulp-builder/issues"
+    "url": "https://github.com/FastIT/webapp-gulp-builder/issues"
   },
-  "homepage": "https://github.com/jdrouet/webapp-gulp-builder",
+  "homepage": "https://github.com/FastIT/webapp-gulp-builder",
   "dependencies": {
     "coffee-script": "~1.10.0",
     "coffeelint-stylish": "~0.1.2",
