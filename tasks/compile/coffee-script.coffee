@@ -4,6 +4,7 @@ gif           = require 'gulp-if'
 gutil         = require 'gulp-util'
 livereload    = require 'gulp-livereload'
 ngAnnotate    = require 'gulp-ng-annotate'
+order         = require 'gulp-order'
 plumber       = require 'gulp-plumber'
 replace       = require 'gulp-replace-task'
 sourcemaps    = require 'gulp-sourcemaps'
@@ -18,6 +19,7 @@ module.exports = (gulp, config) ->
     .pipe coffee(config.coffee)
     .pipe ngAnnotate(config.ngAnnotate)
     .pipe gif config.minify, uglify(config.uglify)
+    .pipe order config.input.order or ['*']
     .pipe concat config.output.application
     .pipe sourcemaps.init()
     .pipe sourcemaps.write()
