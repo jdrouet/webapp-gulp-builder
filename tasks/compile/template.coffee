@@ -7,6 +7,7 @@ plumber       = require 'gulp-plumber'
 replace       = require 'gulp-replace-task'
 sourcemaps    = require 'gulp-sourcemaps'
 templateCache = require 'gulp-angular-templatecache'
+rev           = require 'gulp-rev'
 
 module.exports = (gulp, config) ->
   gulp.task 'compile:template', ->
@@ -26,5 +27,12 @@ module.exports = (gulp, config) ->
       standalone: true
     .pipe sourcemaps.init()
     .pipe sourcemaps.write()
+    .pipe rev()
     .pipe gulp.dest config.output.script
+    .pipe rev.manifest({
+      base: config.output.path,
+      path: config.output.path + '/rev-manifest.json',
+      merge: true
+    })
+    .pipe gulp.dest config.output.path
     .pipe livereload()

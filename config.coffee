@@ -9,6 +9,17 @@ if process.env.NODE_ENV == 'staging'
 config.cssnano =
   zindex: true
 
+config.coffee =
+  bare: true
+
+config.uglify =
+  compress: false
+
+config.ngAnnotate =
+  remove: false
+  add: true
+  single_quotes: true
+
 config.livereload = true
 config.lint = true
 
