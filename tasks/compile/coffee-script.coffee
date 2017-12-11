@@ -26,6 +26,10 @@ module.exports = (gulp, config) ->
     .pipe sourcemaps.write()
     .pipe rev()
     .pipe gulp.dest config.output.script
-    .pipe rev.manifest()
-    .pipe gulp.dest config.output.script
+    .pipe rev.manifest({
+      base: config.output.path,
+      path: config.output.path + '/rev-manifest.json',
+      merge: true
+    })
+    .pipe gulp.dest config.output.path
     .pipe livereload()

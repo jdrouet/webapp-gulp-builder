@@ -10,6 +10,7 @@ rename        = require 'gulp-rename'
 replace       = require 'gulp-replace'
 sourcemaps    = require 'gulp-sourcemaps'
 uglify        = require 'gulp-uglify'
+rev           = require 'gulp-rev'
 
 module.exports = (gulp, config) ->
 
@@ -26,5 +27,12 @@ module.exports = (gulp, config) ->
     .pipe sourcemaps.write()
     .pipe rename config.output.loopback.filename
     .pipe gif config.input.loopback.prefix?.replace, replace('$LoopBack$', config.input.loopback.prefix.with)
+    .pipe rev()
     .pipe gulp.dest config.output.loopback.path
+    .pipe rev.manifest({
+      base: config.output.path,
+      path: config.output.path + '/rev-manifest.json',
+      merge: true
+    })
+    .pipe gulp.dest config.output.path
     .pipe livereload()
