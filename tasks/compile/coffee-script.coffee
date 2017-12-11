@@ -9,6 +9,7 @@ plumber       = require 'gulp-plumber'
 replace       = require 'gulp-replace-task'
 sourcemaps    = require 'gulp-sourcemaps'
 uglify        = require 'gulp-uglify'
+rev           = require 'gulp-rev'
 
 module.exports = (gulp, config) ->
   gulp.task 'compile:coffee', ->
@@ -23,5 +24,8 @@ module.exports = (gulp, config) ->
     .pipe concat config.output.application
     .pipe sourcemaps.init()
     .pipe sourcemaps.write()
+    .pipe rev()
+    .pipe gulp.dest config.output.script
+    .pipe rev.manifest()
     .pipe gulp.dest config.output.script
     .pipe livereload()
