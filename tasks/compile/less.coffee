@@ -6,6 +6,7 @@ livereload    = require 'gulp-livereload'
 cssnano       = require 'gulp-cssnano'
 path          = require 'path'
 plumber       = require 'gulp-plumber'
+rev           = require 'gulp-rev'
 
 module.exports = (gulp, config) ->
   gulp.task 'compile:less', ->
@@ -17,5 +18,12 @@ module.exports = (gulp, config) ->
       browsers: ['last 2 versions', 'Firefox >= 24', 'ie >= 11']
       cascade: false
     .pipe gif config.minify, cssnano(config.cssnano)
+    .pipe rev()
     .pipe gulp.dest config.output.less
+    .pipe rev.manifest({
+      base: config.output.path,
+      path: config.output.path + '/rev-manifest.json',
+      merge: true
+    })
+    .pipe gulp.dest config.output.path
     .pipe livereload()
